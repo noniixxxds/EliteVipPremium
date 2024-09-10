@@ -1,0 +1,976 @@
+<html><head><base href="https://elitevippetitter.com/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteVIP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e74c3c;
+            --background-color: #ecf0f1;
+            --text-color: #2c3e50;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .premium-icon {
+            font-size: 40px;
+            color: #ffd700;
+            margin-right: 15px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin: 0;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            width: 100%;
+        }
+
+        #search-input {
+            padding: 10px;
+            border: none;
+            border-radius: 20px 0 0 20px;
+            font-size: 16px;
+            width: calc(100% - 50px);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        #search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        #search-input:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            width: calc(100% - 50px);
+        }
+
+        #search-button {
+            background-color: var(--accent-color);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0 20px 20px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #search-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        #search-button i {
+            color: var(--background-color);
+        }
+
+        nav {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 10px;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 20px;
+            margin-left: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-help {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: 600;
+            font-size: 14px;
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-help:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .btn-help i {
+            margin-right: 5px;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 120px auto 0; 
+            padding: 10px;
+        }
+
+        #banner {
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        #banner-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 1;
+            padding: 40px 20px;
+            background-color: rgba(255, 165, 0, 0.7);
+        }
+
+        #banner h2, #banner p {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        #banner h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            border-bottom: none;
+            color: white;
+        }
+
+        #banner p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .banner-cta {
+            display: inline-block;
+            background-color: white;
+            color: var(--accent-color);
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .banner-cta:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        #testimonials {
+            margin-bottom: 60px;
+            margin-top: 60px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        #testimonials h2 {
+            display: flex;
+            align-items: center;
+        }
+
+        #testimonials h2 i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .services-grid, .additionals-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .service, .additional {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service h3, .additional h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .service p, .additional p {
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+
+        .btn-schedule, #modal-button {
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            padding: 12px 24px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: auto;
+            width: calc(100% - 48px);
+            align-self: center;
+            word-wrap: break-word;
+        }
+
+        .testimonials-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 20px;
+        }
+
+        .testimonial {
+            flex: 0 0 auto;
+            width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-right: 20px;
+            scroll-snap-align: start;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+
+        .testimonial h4 {
+            margin: 0;
+            text-align: right;
+            color: var(--secondary-color);
+        }
+
+        .qualifications-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .qualifications-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .qualification-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .qualification-item i {
+            color: #4CAF50;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+
+        .qualification-item div {
+            flex: 1;
+        }
+
+        #categories {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px 0;
+            background-color: var(--background-color);
+            margin-bottom: 30px;
+        }
+
+        .category {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .category i {
+            font-size: 24px;
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .category span {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search-container {
+                margin: 15px 0;
+                width: 100%;
+            }
+
+            #search-input {
+                width: calc(100% - 50px);
+            }
+
+            #search-button {
+                width: 50px;
+            }
+
+            nav {
+                margin-top: 15px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .services-grid, .additionals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service, .additional {
+                padding: 15px;
+            }
+
+            .btn-schedule, #modal-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .testimonial {
+                width: 250px;
+                padding: 15px;
+            }
+
+            .qualifications-container {
+                flex-direction: column;
+            }
+
+            main {
+                margin-top: 180px; 
+            }
+
+            #banner {
+                padding: 30px 15px;
+            }
+
+            #banner-image {
+                height: 100%;
+                object-fit: cover;
+            }
+
+            #banner h2 {
+                font-size: 24px;
+            }
+
+            #banner p {
+                font-size: 16px;
+            }
+
+            .banner-cta {
+                padding: 10px 20px;
+                font-size: 14px;
+            } 
+
+            #categories {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .category {
+                width: 80%;
+                justify-content: center;
+            }
+
+            .floating-whatsapp-btn {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .modal-content {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        #priority-modal {
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            max-width: 400px;
+            width: 90%;
+            margin: 20px;
+        }
+
+        .priority-icon {
+            font-size: 48px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .modal-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: none;
+            font-size: 24px;
+        }
+
+        #modal-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        #modal-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 30px;
+            }
+
+            .priority-icon {
+                font-size: 36px;
+            }
+
+            .modal-content h2 {
+                font-size: 20px;
+            }
+
+            #modal-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+
+        .floating-whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .floating-whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <i class="fas fa-crown premium-icon"></i>
+                <h1>EliteVIP</h1>
+            </div>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Pesquisar...">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+            <nav>
+               
+                
+                <a href="https://www.instagram.com/cuidado_pet_vip?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://w.app/EliteVip" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+    
+
+        </section>
+
+        <section id="testimonials">
+            <h2><i class="fas fa-quote-left"></i> Depoimentos</h2>
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <p>"Excelente serviço! Meu gato ficou super feliz e bem cuidado."</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>- Maria S.</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"A babá de cão foi incrível com meu labrador. Recomendo!"</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>- João P.</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"Meu iguana recebeu cuidados especializados. Estou impressionado!"</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>- Ana R.</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"O serviço de pernote foi uma mão na roda. Muito profissional!"</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>- Carlos M.</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"A administração de medicamentos foi feita com muita atenção."</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>- Lucia F.</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"Meu gato adorou o passeio supervisionado. Voltarei com certeza!"</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>- Pedro S.</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"O corte de unhas foi rápido e indolor. Meu pet ficou tranquilo."</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>- Mariana L.</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"Excelente atendimento para meu cão e gato. Muito atenciosos!"</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>- Ricardo G.</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"A babá de pet exótico cuidou muito bem do meu furão. Obrigada!"</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>- Fernanda T.</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"Serviço de primeira qualidade. Recomendo para todos os donos de pets!"</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>- Gustavo H.</h4>
+                </div>
+            </div>
+        </section>
+        
+        
+          <section id="banner">
+            <img src="https://ibb.co/VqSczV9" id="banner-image">
+            <div class="banner-content">
+                <h2>Cuidados Premium para seu Pet</h2>
+                <p>Experimente o melhor em serviços de cuidados para animais de estimação</p>
+                <a href="https://chat.fillapp.me/?id=ea148d87-bda7-42f8-8ecf-db7f046bafec" class="banner-cta">Agende Agora</a>
+            </div>
+        </section>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <section id="services">
+            <h2><i class="fas fa-paw"></i> Nossos Serviços</h2>
+            <p>Na EliteVIP, oferecemos cuidados de alta qualidade para seu animal de estimação, adaptados às necessidades únicas de cada pet.</p>
+            
+            <div class="services-grid">
+                <div class="service">
+                    <h3>Babá de Pet Exótico</h3>
+                    <p>Cuidados especializados para animais exóticos, incluindo répteis, aves e pequenos mamíferos.</p>
+                    <a href="https://chat.fillapp.me/?id=ea148d87-bda7-42f8-8ecf-db7f046bafec" class="btn-schedule">Agendar</a>
+                </div>
+                
+                <div class="service">
+                    <h3>Babá de Gato e Cão</h3>
+                    <p>Atendimento personalizado para lares com ambos gatos e cães, garantindo harmonia e atenção adequada.</p>
+                    <a href="https://chat.fillapp.me/?id=ea148d87-bda7-42f8-8ecf-db7f046bafec" class="btn-schedule">Agendar</a>
+                </div>
+                
+                <div class="service">
+                    <h3>Babá Mestiço</h3>
+                    <p>Cuidados adaptados para pets de raças mistas, respeitando suas características únicas.</p>
+                    <a href="https://chat.fillapp.me/?id=ea148d87-bda7-42f8-8ecf-db7f046bafec" class="btn-schedule">Agendar</a>
+                </div>
+                
+                <div class="service">
+                    <h3>Babá de Cão</h3>
+                    <p>Serviços dedicados exclusivamente aos cães, incluindo passeios, brincadeiras e cuidados específicos.</p>
+                    <a href="https://chat.fillapp.me/?id=ea148d87-bda7-42f8-8ecf-db7f046bafec" class="btn-schedule">Agendar</a>
+                </div>
+                
+                <div class="service">
+                    <h3>Babá de Gato</h3>
+                    <p>Atenção especial às necessidades dos felinos, incluindo interação, limpeza de caixas de areia e enriquecimento ambiental.</p>
+                    <a href="https://chat.fillapp.me/?id=ea148d87-bda7-42f8-8ecf-db7f046bafec" class="btn-schedule">Agendar</a>
+                </div>
+                
+                <div class="service">
+                    <h3>Pernote</h3>
+                    <p>Serviço de cuidados noturnos para seu pet, garantindo atenção e segurança durante a noite toda.</p>
+                    <a href="https://chat.fillapp.me/?id=ea148d87-bda7-42f8-8ecf-db7f046bafec" class="btn-schedule">Agendar</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="additionals">
+            <h2>Serviços Adicionais</h2>
+            
+            <div class="additionals-grid">
+                <div class="additional">
+                    <h3>Administração de Medicamentos</h3>
+                    <p>Administramos medicamentos conforme prescrição veterinária, garantindo a saúde e bem-estar do seu pet.</p>
+                    <a href="https://chat.fillapp.me/?id=ea148d87-bda7-42f8-8ecf-db7f046bafec" class="btn-schedule">Agendar</a>
+                </div>
+                
+                <div class="additional">
+                    <h3>Passeio Supervisionado para Gatos</h3>
+                    <p>Oferecemos passeios seguros e supervisionados para gatos, permitindo que eles explorem o ambiente externo de forma controlada.</p>
+                    <a href="https://chat.fillapp.me/?id=ea148d87-bda7-42f8-8ecf-db7f046bafec" class="btn-schedule">Agendar</a>
+                </div>
+                
+                <div class="additional">
+                    <h3>Corte de Unhas e Limpeza de Ouvido</h3>
+                    <p>Cuidados de higiene essenciais para manter seu gato saudável e confortável.</p>
+                    <a href="https://chat.fillapp.me/?id=ea148d87-bda7-42f8-8ecf-db7f046bafec" class="btn-schedule">Agendar</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="qualifications">
+            <h2>Qualificações e Qualidades Excepcionais da EliteVIP</h2>
+            
+            <div class="qualifications-container">
+                <div class="qualifications-section">
+                    <h3>Qualificações que se destacam:</h3>
+                    <p><strong>2015-2017</strong></p>
+                    <ul>
+                        <li class="qualification-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Certificações Profissionais:</strong> Nossa equipe possui formações específicas nas áreas de cuidados veterinários, comportamento animal e primeiros socorros, o que nos permite lidar com qualquer necessidade do seu pet com segurança e precisão.
+                            </div>
+                        </li>
+                        <li class="qualification-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Treinamento Contínuo:</strong> Investimos constantemente em cursos e atualizações para garantir que estamos sempre aplicando as práticas mais modernas e seguras de cuidado animal.
+                            </div>
+                        </li>
+                        <li class="qualification-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Experiência com Animais Não Convencionais:</strong> Não importa o quão especial seja o seu pet, nossos profissionais têm expertise em cuidar de espécies diversas, garantindo conforto e bem-estar a todos os tipos de animais.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="qualifications-section">
+                    <h3>Qualidades Excepcionais da EliteVIP:</h3>
+                    <ul>
+                        <li class="qualification-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Atendimento Personalizado:</strong> Cada pet e seu dono recebem um plano de cuidados único, respeitando a dinâmica da família e o comportamento do animal.
+                            </div>
+                        </li>
+                        <li class="qualification-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Equipe Apaixonada:</strong> Nossos cuidadores são verdadeiros amantes de animais, comprometidos com a felicidade e segurança de cada pet sob nossos cuidados.
+                            </div>
+                        </li>
+                        <li class="qualification-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Transparência:</strong> Mantemos comunicação constante com os donos, atualizando-os sobre a rotina e o bem-estar de seus pets através de fotos e mensagens.
+                            </div>
+                        </li>
+                        <li class="qualification-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Flexibilidade:</strong> Oferecemos serviços adaptáveis às necessidades específicas de cada pet e família, garantindo um cuidado sob medida para cada situação.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2023 EliteVIP. Todos os direitos reservados.</p>
+    </footer>
+
+
+    <a href="https://w.app/EliteVip" target="_blank" class="floating-whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById('search-button');
+        let clickCount = 0;
+        let matchingElements = [];
+        let currentIndex = 0;
+
+        function removeAccents(str) {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        function performSearch() {
+            const searchTerm = removeAccents(searchInput.value.toLowerCase());
+            const elements = document.querySelectorAll('h2, h3, p');
+            matchingElements = [];
+            clickCount++;
+            
+            elements.forEach(element => {
+                const text = removeAccents(element.textContent.toLowerCase());
+                if (text.includes(searchTerm)) {
+                    matchingElements.push(element);
+                    element.style.backgroundColor = 'yellow';
+                } else {
+                    element.style.backgroundColor = '';
+                }
+            });
+            
+            if (matchingElements.length > 0) {
+                if (clickCount === 1) {
+                    matchingElements[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    currentIndex = (currentIndex + 1) % matchingElements.length;
+                    matchingElements[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            } else {
+                alert('Nenhum resultado encontrado.');
+                clickCount = 0;
+            }
+        }
+
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                clickCount = 0;
+                currentIndex = 0;
+                performSearch();
+            }
+        });
+
+        searchInput.addEventListener('input', function() {
+            clickCount = 0;
+            currentIndex = 0;
+        });
+
+        const modal = document.getElementById('priority-modal');
+        const modalButton = document.getElementById('modal-button');
+
+        window.addEventListener('load', function() {
+            modal.style.display = "block";
+        });
+
+        modalButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            window.open(this.href, '_blank');
+            modal.style.display = "none";
+        });
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    });
+    </script>
+</body>
+</html>
